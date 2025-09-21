@@ -8,6 +8,7 @@ build/
 .next/
 .nuxt/
 .cache/
+.vite/
 
 # Firebase
 .firebase/
@@ -33,44 +34,33 @@ pids
 *.seed
 *.pid.lock
 
-# Coverage directory used by tools like istanbul
+# Coverage directory
 coverage/
 *.lcov
-
-# nyc test coverage
 .nyc_output
 
 # Dependency directories
 jspm_packages/
 
-# Optional npm cache directory
+# Optional npm cache
 .npm
-
-# Optional eslint cache
 .eslintcache
 
-# Microbundle cache
+# Cache directories
 .rpt2_cache/
 .rts2_cache_cjs/
 .rts2_cache_es/
 .rts2_cache_umd/
+.parcel-cache
 
 # Optional REPL history
 .node_repl_history
 
-# Output of 'npm pack'
+# Package files
 *.tgz
-
-# Yarn Integrity file
 .yarn-integrity
 
-# parcel-bundler cache (https://parceljs.org/)
-.parcel-cache
-
-# Stores VSCode versions used for testing VSCode extensions
-.vscode-test
-
-# yarn v2
+# Yarn v2
 .yarn/cache
 .yarn/unplugged
 .yarn/build-state.yml
@@ -96,34 +86,3 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
-
-# Test files (keeping only essential ones)
-test-*.js
-*-test.js
-*.test.js
-
-# Documentation files (keeping main ones)
-AI-*.md
-BUTTON-*.md
-DEPLOYMENT-*.md
-ENHANCED-*.md
-FIXED-*.md
-HACKATHON-*.md
-REPORT-*.md
-SPEECH-*.md
-TECH-*.md
-*-COMPLETE.md
-*-FIXED.md
-*-FEATURE.md
-*-SUCCESS.md
-napkin-ai-prompt.md
-test-enhancements.md
-USP_Template.md
-
-# Deployment scripts
-deploy-*.bat
-deploy.sh
-
-# Setup files
-setup-*.md
-dialogflow-setup.json

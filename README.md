@@ -130,6 +130,7 @@
    npm run dev
    
    # In another terminal, start Firebase emulators
+   cd ..
    firebase emulators:start
    ```
 
@@ -158,18 +159,24 @@ MannMitra-/
 ├── frontend/                 # React frontend application
 │   ├── src/
 │   │   ├── components/      # Reusable UI components
+│   │   │   └── ui/         # UI component library
 │   │   ├── pages/          # Main application pages
 │   │   ├── hooks/          # Custom React hooks
 │   │   ├── services/       # API service layer
 │   │   ├── utils/          # Utility functions
 │   │   └── lib/            # Configuration files
 │   ├── public/             # Static assets
-│   └── package.json        # Frontend dependencies
+│   ├── package.json        # Frontend dependencies
+│   └── vite.config.ts      # Vite configuration
 ├── functions/              # Firebase Cloud Functions
 │   ├── index.js           # Main functions entry point
-│   └── package.json       # Backend dependencies
+│   ├── package.json       # Backend dependencies
+│   └── .env.example       # Environment variables template
 ├── firebase.json          # Firebase configuration
 ├── firestore.rules       # Firestore security rules
+├── .gitignore            # Git ignore rules
+├── LICENSE               # MIT License
+├── CONTRIBUTING.md       # Contribution guidelines
 └── README.md             # This file
 ```
 

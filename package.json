@@ -1,6 +1,0 @@
-{
-  "dependencies": {
-    "@google-cloud/aiplatform": "^5.7.0",
-    "@google-cloud/documentai": "^9.4.0"
-  }
-}
