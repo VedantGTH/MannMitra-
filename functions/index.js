@@ -12,7 +12,14 @@ if (!admin.apps.length) {
 const projectId = process.env.GOOGLE_PROJECT_ID || 'mannmitra-app';
 const location = 'us-central1';
 const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
-const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+
+// Initialize Gemini AI with error handling
+let genAI = null;
+if (GEMINI_API_KEY) {
+  genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
+} else {
+  console.warn('⚠️ GEMINI_API_KEY not found. AI features will use fallback responses.');
+}
 
 // Diary AI Reflection endpoint
 exports.diaryAI = onCall(async (request) => {
@@ -88,6 +95,11 @@ Example format:
 Return as valid JSON only, no additional text or formatting.
 Make each recommendation specific and actionable.`;
     
+    if (!genAI) {
+      console.log('⚠️ Gemini AI not available, using structured fallback');
+      return generateStructuredPlan(healthData);
+    }
+    
     console.log('🤖 Calling Gemini AI...');
     const generativeModel = genAI.getGenerativeModel({ 
       model: 'gemini-1.5-flash',
@@ -132,6 +144,11 @@ Make each recommendation specific and actionable.`;
 // Generate AI-powered wellness plan
 async function generateAIWellnessPlan(healthData) {
   try {
+    if (!genAI) {
+      console.log('⚠️ Gemini AI not available, using structured fallback');
+      return generateStructuredPlan(healthData);
+    }
+    
     const generativeModel = genAI.getGenerativeModel({ 
       model: 'gemini-1.5-flash',
       generationConfig: {
@@ -265,6 +282,15 @@ exports.getChatResponse = onCall(async (request) => {
     
     console.log('🤖 Processing chat message:', text);
     console.log('👤 User mood:', currentMood);
+    
+    if (!genAI) {
+      console.log('⚠️ Gemini AI not available, using fallback response');
+      return {
+        response: "I'm here to support you, though I'm experiencing some technical difficulties right now. Please know that you matter and help is available if you need it.",
+        success: true,
+        source: 'fallback_no_api'
+      };
+    }
     
     // Initialize Gemini AI
     const generativeModel = genAI.getGenerativeModel({ 
