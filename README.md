@@ -89,8 +89,8 @@
 
 1. **Clone the repository**
    ```bash
-   git clone https://github.com/yourusername/mannmitra-plus.git
-   cd mannmitra-plus
+   git clone https://github.com/VedantGTH/MannMitra-.git
+   cd MannMitra-
    ```
 
 2. **Install dependencies**
@@ -154,7 +154,7 @@
 ## 📁 Project Structure
 
 ```
-mannmitra-plus/
+MannMitra-/
 ├── frontend/                 # React frontend application
 │   ├── src/
 │   │   ├── components/      # Reusable UI components
@@ -247,7 +247,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 ## 📞 Support
 
 - **Live Demo**: [https://manmitra-f60af.web.app](https://manmitra-f60af.web.app)
-- **Issues**: [GitHub Issues](https://github.com/yourusername/mannmitra-plus/issues)
+- **Issues**: [GitHub Issues](https://github.com/VedantGTH/MannMitra-/issues)
 - **Email**: support@mannmitra.com
 
 ---
