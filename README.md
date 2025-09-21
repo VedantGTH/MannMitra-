@@ -118,10 +118,12 @@
    # Copy environment template
    cp functions/.env.example functions/.env
    
-   # Add your API keys to functions/.env
-   GEMINI_API_KEY=your_gemini_api_key
-   GOOGLE_PROJECT_ID=your_project_id
+   # Edit functions/.env and add your API keys:
+   # GEMINI_API_KEY=your_actual_gemini_api_key
+   # GOOGLE_PROJECT_ID=your_actual_project_id
    ```
+   
+   **⚠️ Important**: You must add your actual API keys to the `.env` file for the application to work properly.
 
 5. **Run locally**
    ```bash
@@ -198,9 +200,13 @@ const firebaseConfig = {
 Enable the following APIs in Google Cloud Console:
 - Cloud Functions API
 - Cloud Speech-to-Text API
-- Generative AI API
-- Document AI API
-- Cloud Storage API
+- Generative AI API (for Gemini)
+- Firebase Functions API
+- Firebase Hosting API
+
+### Required API Keys
+- **GEMINI_API_KEY**: Get from Google AI Studio (https://makersuite.google.com/app/apikey)
+- **GOOGLE_PROJECT_ID**: Your Firebase project ID
 
 ## 🎨 Features Showcase
 

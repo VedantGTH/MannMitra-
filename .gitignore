@@ -86,3 +86,18 @@ Thumbs.db
 # Temporary files
 *.tmp
 *.temp
+
+# Additional build outputs
+out/
+.output/
+
+# Additional environment files
+.env.*.local
+
+# Additional OS files
+.DS_Store*
+Icon?
+
+# Additional IDE files
+.vscode/settings.json
+.history/

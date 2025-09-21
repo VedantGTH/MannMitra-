@@ -11,7 +11,7 @@ if (!admin.apps.length) {
 // Initialize Gemini AI
 const projectId = process.env.GOOGLE_PROJECT_ID || 'mannmitra-app';
 const location = 'us-central1';
-const GEMINI_API_KEY = process.env.GEMINI_API_KEY || 'AIzaSyBejJjIUdU4yBrcWpwT4H1uOmbQ6ZaxFnE';
+const GEMINI_API_KEY = process.env.GEMINI_API_KEY;
 const genAI = new GoogleGenerativeAI(GEMINI_API_KEY);
 
 // Diary AI Reflection endpoint
