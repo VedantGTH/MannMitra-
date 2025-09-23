@@ -102,3 +102,4 @@ Icon?
 # Additional IDE files
 .vscode/settings.json
 .history/
+.env
