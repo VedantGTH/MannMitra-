@@ -1,3 +1,5 @@
+require('dotenv').config();
+
 const { onCall } = require('firebase-functions/v2/https');
 const admin = require('firebase-admin');
 const { GoogleGenerativeAI } = require('@google/generative-ai');
