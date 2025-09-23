@@ -1,6 +1,6 @@
 # 🧠 MannMitra+ - AI Mental Wellness Companion
 
-> **Winner Project - Google Cloud Hackathon 2024**  
+> **Winner Project - Google Cloud Hackathon 2024**
 > *Revolutionizing mental health support for Indian youth through AI-powered wellness integration*
 
 ## 🌟 Live Demo
@@ -81,120 +81,128 @@
 ## 🚀 Quick Start
 
 ### Prerequisites
-- Node.js 18+ 
+- Node.js 18+
 - Firebase CLI
 - Google Cloud Project with APIs enabled
 
 ### Installation
 
-1. **Clone the repository**
-   ```bash
-   git clone https://github.com/VedantGTH/MannMitra-.git
-   cd MannMitra-
-   ```
+1.  **Clone the repository**
+    ```bash
+    git clone [https://github.com/VedantGTH/MannMitra-.git](https://github.com/VedantGTH/MannMitra-.git)
+    cd MannMitra-
+    ```
 
-2. **Install dependencies**
-   ```bash
-   # Install frontend dependencies
-   cd frontend
-   npm install
-   
-   # Install backend dependencies
-   cd ../functions
-   npm install
-   ```
+2.  **Install dependencies**
+    ```bash
+    # Install frontend dependencies
+    cd frontend
+    npm install
 
-3. **Firebase Setup**
-   ```bash
-   # Login to Firebase
-   firebase login
-   
-   # Initialize project (if needed)
-   firebase init
-   ```
+    # Install backend dependencies
+    cd ../functions
+    npm install
+    ```
 
-4. **Environment Configuration**
-   ```bash
-   # Copy environment template
-   cp functions/.env.example functions/.env
-   
-   # Edit functions/.env and add your API keys:
-   # GEMINI_API_KEY=your_actual_gemini_api_key
-   # GOOGLE_PROJECT_ID=your_actual_project_id
-   ```
-   
-   **⚠️ Important**: You must add your actual API keys to the `.env` file for the application to work properly.
+3.  **Firebase Setup**
+    ```bash
+    # Login to Firebase
+    firebase login
 
-5. **Run locally**
-   ```bash
-   # Start frontend development server
-   cd frontend
-   npm run dev
-   
-   # In another terminal, start Firebase emulators
-   cd ..
-   firebase emulators:start
-   ```
+    # Initialize project (if needed)
+    firebase init
+    ```
+
+4.  **Environment Configuration**
+    This project requires two separate `.env` files to manage secret keys for the frontend and backend.
+
+    **A. For the Backend (Firebase Functions):**
+    Navigate to the `functions` directory and create your environment file.
+    ```bash
+    # In the 'functions' directory
+    cp .env.example .env
+    ```
+    Now, edit the new `functions/.env` file and add your backend API keys:
+    ```
+    GEMINI_API_KEY="your_actual_gemini_api_key"
+    GOOGLE_PROJECT_ID="your_actual_project_id"
+    ```
+
+    **B. For the Frontend (React App):**
+    Navigate to the `frontend` directory and create a new environment file.
+    ```bash
+    # In the 'frontend' directory
+    touch .env
+    ```
+    Now, edit the new `frontend/.env` file and add your Firebase SDK keys.
+    **Note:** Because this project uses Vite, these variables must start with `VITE_`.
+    ```
+    VITE_FIREBASE_API_KEY="your_firebase_sdk_api_key"
+    VITE_FIREBASE_AUTH_DOMAIN="your_project.firebaseapp.com"
+    VITE_FIREBASE_PROJECT_ID="your_project_id"
+    VITE_FIREBASE_STORAGE_BUCKET="your_project.appspot.com"
+    VITE_FIREBASE_MESSAGING_SENDER_ID="your_sender_id"
+    VITE_FIREBASE_APP_ID="your_app_id"
+    ```
+
+5.  **Run locally**
+    ```bash
+    # Start frontend development server
+    cd frontend
+    npm run dev
+
+    # In another terminal, start Firebase emulators
+    cd ..
+    firebase emulators:start
+    ```
 
 ### Deployment
 
-1. **Build frontend**
-   ```bash
-   cd frontend
-   npm run build
-   ```
+1.  **Build frontend**
+    ```bash
+    cd frontend
+    npm run build
+    ```
 
-2. **Deploy to Firebase**
-   ```bash
-   # Deploy functions and hosting
-   firebase deploy
-   
-   # Or deploy separately
-   firebase deploy --only functions
-   firebase deploy --only hosting
-   ```
+2.  **Deploy to Firebase**
+    ```bash
+    # Deploy functions and hosting
+    firebase deploy
+
+    # Or deploy separately
+    firebase deploy --only functions
+    firebase deploy --only hosting
+    ```
 
 ## 📁 Project Structure
-
 ```
 MannMitra-/
-├── frontend/                 # React frontend application
+├── frontend/                  # React frontend application
 │   ├── src/
 │   │   ├── components/      # Reusable UI components
-│   │   │   └── ui/         # UI component library
-│   │   ├── pages/          # Main application pages
-│   │   ├── hooks/          # Custom React hooks
-│   │   ├── services/       # API service layer
-│   │   ├── utils/          # Utility functions
-│   │   └── lib/            # Configuration files
-│   ├── public/             # Static assets
-│   ├── package.json        # Frontend dependencies
-│   └── vite.config.ts      # Vite configuration
-├── functions/              # Firebase Cloud Functions
-│   ├── index.js           # Main functions entry point
-│   ├── package.json       # Backend dependencies
-│   └── .env.example       # Environment variables template
-├── firebase.json          # Firebase configuration
-├── firestore.rules       # Firestore security rules
-├── .gitignore            # Git ignore rules
-├── LICENSE               # MIT License
-├── CONTRIBUTING.md       # Contribution guidelines
-└── README.md             # This file
+│   │   │   └── ui/          # UI component library
+│   │   ├── pages/           # Main application pages
+│   │   ├── hooks/           # Custom React hooks
+│   │   ├── services/        # API service layer
+│   │   ├── utils/           # Utility functions
+│   │   └── lib/             # Configuration files
+│   ├── public/              # Static assets
+│   ├── package.json         # Frontend dependencies
+│   └── vite.config.ts       # Vite configuration
+├── functions/                 # Firebase Cloud Functions
+│   ├── index.js             # Main functions entry point
+│   ├── package.json         # Backend dependencies
+│   └── .env.example         # Environment variables template
+├── firebase.json            # Firebase configuration
+├── firestore.rules          # Firestore security rules
+├── .gitignore               # Git ignore rules
+├── LICENSE                  # MIT License
+├── CONTRIBUTING.md          # Contribution guidelines
+└── README.md                # This file
 ```
 
 ## 🔧 Configuration
-
-### Firebase Configuration
-Update `frontend/src/lib/firebase.ts` with your Firebase config:
-
-```typescript
-const firebaseConfig = {
-  apiKey: "your-api-key",
-  authDomain: "your-project.firebaseapp.com",
-  projectId: "your-project-id",
-  // ... other config
-};
-```
+The Firebase configuration is handled securely using environment variables loaded in `frontend/src/lib/firebase.ts`. Please see the **Environment Configuration** section in the Quick Start guide for setup instructions.
 
 ### Google Cloud APIs
 Enable the following APIs in Google Cloud Console:
