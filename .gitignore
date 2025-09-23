@@ -93,6 +93,7 @@ out/
 
 # Additional environment files
 .env.*.local
+.env
 
 # Additional OS files
 .DS_Store*
